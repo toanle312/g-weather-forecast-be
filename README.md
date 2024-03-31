@@ -1,73 +1,54 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# G Weather Forcast - BE
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a backend for https://github.com/toanle312/g-weather-forecast-fe
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This project is built on [NestJS](https://nestjs.com/) and use [Prisma ORM](https://www.prisma.io/) and [Neon Postgres](https://neon.tech/) to build REST API
 
-## Description
+# How to run this project locally
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Required: Node (20.11.1), npm (10.2.4)
+- Clone this repo to your device and run:
+  ```bash
+    npm i
+  ```
+- Config your `.env`
 
-## Installation
+  ```env
+    # common
+    API_KEY=Your weather api key
+    LOCAL_DEV_HOSTNAME=localhost // This is local API root for frontend
+    LOCAL_DEV_PORT=3000 // This is local API port for frontend
+    AUTHOR=
 
-```bash
-$ npm install
-```
+    # url
+    APP_URL=Your backend url
+    CLIENT_URL=Your frontend url
 
-## Running the app
+    # mail - config to send email
+    MAIL_HOST=smtp.example.com
+    MAIL_USER=user@example.com
+    MAIL_PASSWORD=topsecret // create and use app password of google account
+    MAIL_FROM=noreply@example.com
+    # optional
+    MAIL_TRANSPORT=smtp://${MAIL_USER}:${MAIL_PASSWORD}@${MAIL_HOST}
 
-```bash
-# development
-$ npm run start
+    # database - you
+    DATABASE_URL=Your database url when build postgres database with Prisma on Neon
+  ```
 
-# watch mode
-$ npm run start:dev
+- Run project in watch mode:
+  ```bash
+    npm run start:dev
+  ```
 
-# production mode
-$ npm run start:prod
-```
+# Get weather API key
 
-## Test
+- Visit: https://www.weatherapi.com/
 
-```bash
-# unit tests
-$ npm run test
+# How to get Database URL
 
-# e2e tests
-$ npm run test:e2e
+- Visit: https://www.prisma.io/docs/orm/overview/databases/neon
 
-# test coverage
-$ npm run test:cov
-```
+# Author
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- [toanle312](https://github.com/toanle312)
