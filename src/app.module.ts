@@ -18,7 +18,7 @@ import { ScheduleMailController } from './schedule-mail/schedule-mail.controller
       {
         name: 'short',
         ttl: 1000,
-        limit: 3,
+        limit: 5,
       },
       {
         name: 'long',

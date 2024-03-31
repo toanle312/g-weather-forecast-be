@@ -1,5 +1,5 @@
-import { env } from '@/configs/environment';
 import { VerifiedEmailsService } from '@/verified-emails/verified-emails.service';
+import { WeatherService } from '@/weather/weather.service';
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
 
@@ -8,19 +8,29 @@ export class ScheduleMailService {
   constructor(
     private readonly mailerService: MailerService,
     private readonly verifiedMailService: VerifiedEmailsService,
+    private readonly weatherService: WeatherService,
   ) {}
 
   async sendDailyEmail() {
     const recipients = await this.verifiedMailService.findAll(); // Add recipients
 
     for (const recipient of recipients) {
+      const weather = await this.weatherService.getCurrentWeather(
+        recipient.location,
+      );
+
       await this.mailerService.sendMail({
         to: recipient.email,
-        subject: 'Welcome to G Weather Forecast - Confirm your Email',
-        template: 'confirmation',
+        subject: 'G Weather Forecast - Daily weather forcast information',
+        template: 'information',
         context: {
           email: recipient.email,
-          url: `${env.APP_URL}/verified-emails/verify/${recipient.email}`,
+          location: weather.location,
+          date: weather.date,
+          temp: weather.temp,
+          wind: weather.wind,
+          humidity: weather.humidity,
+          condition: weather.condition.text,
         },
       });
     }

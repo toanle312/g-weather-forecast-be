@@ -17,7 +17,7 @@ export class MailService {
       await this.verifiedEmailsService.create(user);
     } else if (email.verifiedAt) {
       return {
-        notice: 'Your email was subcribed !!!',
+        notice: 'Your email is subcribed !!!',
       };
     }
 
@@ -31,11 +31,23 @@ export class MailService {
       },
     });
 
-
-
     return {
       notice:
         'Send email successfully, please check your mail box to confirm !!!',
     };
+  }
+
+  async unsubcribe(email: string) {
+    const emailFound = await this.verifiedEmailsService.findOne(email);
+    if (emailFound) {
+      await this.verifiedEmailsService.remove(email);
+      return {
+        notice: 'Unsubcribe your email successfully !!!',
+      };
+    } else {
+      return {
+        notice: 'Your email is not subcribed !!!',
+      };
+    }
   }
 }

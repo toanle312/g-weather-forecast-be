@@ -6,6 +6,7 @@ import { ConfigService } from '@nestjs/config';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { join } from 'path';
 import { VerifiedEmailsModule } from '@/verified-emails/verified-emails.module';
+import { WeatherModule } from '@/weather/weather.module';
 
 @Global()
 @Module({
@@ -35,6 +36,7 @@ import { VerifiedEmailsModule } from '@/verified-emails/verified-emails.module';
       inject: [ConfigService],
     }),
     VerifiedEmailsModule,
+    WeatherModule,
   ],
   controllers: [MailController],
   providers: [MailService],
