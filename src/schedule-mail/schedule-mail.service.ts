@@ -15,6 +15,10 @@ export class ScheduleMailService {
     const recipients = await this.verifiedMailService.findAll(); // Add recipients
 
     for (const recipient of recipients) {
+      if (recipient.verifiedAt === null) {
+        continue;
+      }
+
       const weather = await this.weatherService.getCurrentWeather(
         recipient.location,
       );

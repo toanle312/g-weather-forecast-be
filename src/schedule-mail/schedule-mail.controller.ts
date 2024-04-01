@@ -6,7 +6,7 @@ import { ScheduleMailService } from './schedule-mail.service';
 export class ScheduleMailController {
   constructor(private readonly scheduleMailService: ScheduleMailService) {}
 
-  @Cron(CronExpression.EVERY_DAY_AT_8AM)
+  @Cron(CronExpression.EVERY_DAY_AT_6AM)
   sendDailyEmail() {
     this.scheduleMailService.sendDailyEmail();
   }
