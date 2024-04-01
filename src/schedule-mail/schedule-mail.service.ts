@@ -40,6 +40,7 @@ export class ScheduleMailService {
     await this.mailerService.sendMail({
       to: 'gweatherforecast@mailinator.com',
       subject: 'G Weather Forecast - Guarantee server still alive',
+      template: 'temp',
     });
   }
 }
