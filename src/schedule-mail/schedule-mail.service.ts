@@ -35,4 +35,11 @@ export class ScheduleMailService {
       });
     }
   }
+
+  async makeServerStillAlive() {
+    await this.mailerService.sendMail({
+      to: 'gweatherforecast@mailinator.com',
+      subject: 'G Weather Forecast - Guarantee server still alive',
+    });
+  }
 }
