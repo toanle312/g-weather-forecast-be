@@ -15,7 +15,7 @@ export class ScheduleMailController {
     this.scheduleMailService.sendDailyEmail();
   }
 
-  @Cron(CronExpression.EVERY_10_MINUTES)
+  @Cron(CronExpression.EVERY_30_SECONDS)
   makeServerStillAlive() {
     this.appService.getHello();
   }
