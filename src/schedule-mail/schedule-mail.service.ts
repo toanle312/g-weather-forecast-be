@@ -19,6 +19,7 @@ export class ScheduleMailService {
         continue;
       }
 
+      console.log('Send mail to: ', recipient.email);
       const weather = await this.weatherService.getCurrentWeather(
         recipient.location,
       );
